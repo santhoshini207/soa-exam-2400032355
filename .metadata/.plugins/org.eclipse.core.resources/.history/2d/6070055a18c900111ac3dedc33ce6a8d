@@ -1,0 +1,41 @@
+
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.soa.exam.entity.MuseumMembership;
+import com.klef.soa.exam.repository.MuseumMembershipRepository;
+
+@Service
+public class MuseumMembershipServiceImpl implements MuseumMembershipService {
+
+    @Autowired
+    private MuseumMembershipRepository repo;
+
+	@Override
+	public MuseumMembership addMs(MuseumMembership m) {
+		return repo.save(m);
+	}
+
+	@Override
+	public List<MuseumMembership> displayAll() {
+		return repo.findAll();
+	}
+
+	@Override
+	public String deleteMuseumMembershipById(Long id) {
+		boolean flag = repo.existsById(id); //return true or false
+		if(flag) {
+		repo.deleteById(id);
+		return "WeatherStation Deleted Successfully";
+		}else {
+		return "WeatherStation ID Not Found";
+		}
+		}
+	}
+
+    
+}

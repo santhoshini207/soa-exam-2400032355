@@ -1,0 +1,32 @@
+
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.soa.exam.entity.MuseumMembership;
+import com.klef.soa.exam.repository.MuseumMembershipRepository;
+
+@Service
+public class MuseumMembershipServiceImpl implements MuseumMembershipService {
+
+    @Autowired
+    private MuseumMembershipRepository repo;
+
+    @Override
+    public MuseumMembership addMembership(MuseumMembership m) {
+        return repo.save(m);
+    }
+
+    @Override
+    public List<MuseumMembership> displayAllMemberships() {
+        return repo.findAll();
+    }
+
+    @Override
+    public MuseumMembership displayMembershipById(Long id) {
+        return repo.findById(id).orElse(null);
+    }
+}

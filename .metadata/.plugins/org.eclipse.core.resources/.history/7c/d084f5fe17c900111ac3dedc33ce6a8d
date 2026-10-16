@@ -1,0 +1,15 @@
+
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import com.klef.soa.exam.entity.MuseumMembership;
+
+public interface MuseumMembershipService {
+
+    MuseumMembership addMembership(MuseumMembership m);//
+    List<MuseumMembership> displayAllMemberships();//
+    MuseumMembership displayMembershipById(Long id);//
+    
+
+}

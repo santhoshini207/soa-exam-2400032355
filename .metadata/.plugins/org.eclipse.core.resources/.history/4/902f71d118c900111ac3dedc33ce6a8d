@@ -1,0 +1,34 @@
+
+package com.klef.soa.exam.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.klef.soa.exam.entity.MuseumMembership;
+import com.klef.soa.exam.service.MuseumMembershipService;
+
+@RestController
+@RequestMapping("/museum")
+@CrossOrigin
+public class MuseumMembershipController {
+
+    @Autowired
+    private MuseumMembershipService service;
+
+    @PostMapping("/add")
+    public MuseumMembership addMembership(@RequestBody MuseumMembership m) {
+        return service.addMembership(m);
+    }
+
+    @GetMapping("/all")
+    public List<MuseumMembership> displayAllMemberships() {
+        return service.displayAllMemberships();
+    }
+
+    @GetMapping("/get/{id}")
+    public MuseumMembership displayMembershipById(@PathVariable Long id) {
+        return service.displayMembershipById(id);
+    }
+}

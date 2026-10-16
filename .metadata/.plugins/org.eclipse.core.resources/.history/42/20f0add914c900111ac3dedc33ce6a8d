@@ -1,0 +1,16 @@
+
+spring.application.name=MuseumMembership
+
+server.port=8081
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/museummembershipdb
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+
+eureka.instance.appname=Crud-service
+eureka.instance.hostname=localhost
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
